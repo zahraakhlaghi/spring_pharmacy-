@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>خانه | داروباکس</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/prettyPhoto.css}"/>
+    <link rel="stylesheet" th:href="@{/css/price-range.css}"/>
+    <link rel="stylesheet" th:href="@{/css/animate.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/responsive.css}"/>
+
+    <!--    <script th:src="@{/styles/js/html5shiv.js"></script>-->
+    <!--    <script th:src="@{/styles/js/respond.min.js"></script>-->
+
+
+</head><!--/head-->
+
+<body>
+<header id="header"><!--header-->
+    <div class="header_top"><!--header_top-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="contactinfo">
+                        <ul class="nav nav-pills">
+                            <li><a href="#"><i class="fa fa-phone"></i> 031-31234567 </a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="social-icons pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header_top-->
+
+    <div class="header-middle"><!--header-middle-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 clearfix">
+                    <div class="logo pull-left">
+                        <a href="index.html"><img
+                                src="https://www.darobox.ir/wp-content/uploads/2021/07/logo-daroobox-up.png" alt=""
+                                width="139" height="39"/></a>
+                    </div>
+                    <div class="btn-group pull-right clearfix">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                ایران
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="">ترکیه</a></li>
+                                <li><a href="">عراق</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                ریال
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="">لیر</a></li>
+                                <li><a href="">ذینار</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 clearfix">
+                    <div class="shop-menu clearfix pull-right">
+                        <ul class="nav navbar-nav">
+                            <li th:if="${username == null}" ><a href=""><i class="fa fa-user"></i> حساب کاربری</a></li>
+                            <li th:unless="${username == null}" ><a href="" th:text="${username}"><i class="fa fa-star"></i></a></li>
+                            <li><a href=""><i class="fa fa-star"></i> علاقه مندی ها</a></li>
+
+                            <li><a th:href="${'/complete_sale'}"><i class="fa fa-crosshairs"></i>تکمیل خرید</a></li>
+                            <li><a th:href="${'/sale'}" ><i class="fa fa-shopping-cart"></i> سبد خرید</a></li>
+                            <li><a th:onclick="show_login()"><i class="fa fa-lock"></i> ورود</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header-middle-->
+
+    <div class="header-bottom"><!--header-bottom-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="mainmenu pull-left">
+                        <ul class="nav navbar-nav collapse navbar-collapse">
+                            <li><a th:href="${'/'}" class="active">خانه</a></li>
+                            <li class="dropdown"><a href="#">مشاوره<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    <li><a href="shop.html">محصولات</a></li>
+                                    <li><a href="product-details.html">جزییات محصولات</a></li>
+                                    <li><a th:href="${'/complete_sale'}">تکمیل خرید</a></li>
+                                    <li><a th:href="${'/sale'}" >سبد خرید</a></li>
+                                    <li><a href="login.html">ورود</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#">مجله خبری<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    <li><a href="blog.html">لیست خبرها</a></li>
+                                    <li><a href="blog-single.html">تک خبر</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="contact-us.html">ارتباط با ما</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <!--/*@thymesVar id="search" type=""*/-->
+                    <form method="post" action="#" th:action="${'/search'}">
+                        <div class="search_box pull-right">
+                            <input id="search" th:name="search" type="text" placeholder="جستجو" dir="rtl"
+                                   style="padding-right:28px;">
+                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!--/header-bottom-->
+</header><!--/header-->
+
+<section id="slider"><!--slider-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1"></li>
+                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-sm-6">
+                                <img src="https://daroo.com/media/SliderItem/287/04cdd74c-c304-41fc-ab00-b487c68c18b0"
+                                     alt="" width="900" height="230"/>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <img src="https://daroo.com/media/SliderItem/325/f459113e-e43e-46cc-9999-a328e9b7b234"
+                                     alt="" width="900" height="230"/>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <img src="https://daroo.com/media/SliderItem/286/012b0804-5778-4518-9e28-9030e5b93a53"
+                                     alt="" width="900" height="230"/>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!--/slider-->
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>دسته بندی</h2>
+                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        مکمل غذایی
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="sportswear" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="#">ویتامین ها و مواد معدنی </a></li>
+                                        <li><a href="#">مکمل های کودک </a></li>
+                                        <li><a href="#">مکمل ورزشی </a></li>
+                                        <li><a href="#">تنظیم وزن</a></li>
+                                        <li><a href="#">مکمل های درمانی </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#mens">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        تجهیزات پزشکی
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="mens" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="#">ارتوپدی</a></li>
+                                        <li><a href="#">لوازم کمک درمانی،کاربری</a></li>
+                                        <li><a href="#">پانسمان و تزریقات</a></li>
+                                        <li><a href="#">دستگاه های خانگی</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#womens">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        مراقبت پوست و مو
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="womens" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="#">ترمیم کننده</a></li>
+                                        <li><a href="#">التیام بخش پوست</a></li>
+                                        <li><a href="#">ناخن</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">بهداشتی</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">آرایشی</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">تقویت سیستم ایمنی</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">مکمل های تخصصی</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">مادر و کودک</a></h4>
+                            </div>
+                        </div>
+
+                    </div><!--/category-products-->
+
+                    <div class="brands_products"><!--brands_products-->
+                        <h2>برندها</h2>
+                        <div class="brands-name">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#"> <span class="pull-right">آدریان</span>(50)</a></li>
+                                <li><a href="#"> <span class="pull-right">آکوافور</span>(56)</a></li>
+                                <li><a href="#"> <span class="pull-right">آمیتامین</span>(27)</a></li>
+                                <li><a href="#"> <span class="pull-right">اروند فارمد</span>(32)</a></li>
+                                <li><a href="#"> <span class="pull-right">ادونسیس</span>(5)</a></li>
+                                <li><a href="#"> <span class="pull-right">آیسیس فارما</span>(9)</a></li>
+                            </ul>
+
+                        </div>
+                    </div><!--/brands_products-->
+
+                    <div class="price-range"><!--price-range-->
+                        <h2>بازه ی قیمت</h2>
+                        <div class="well text-center">
+                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="500"
+                                   data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br/>
+                            <b class="pull-left">0 T</b> <b class="pull-right">500 T</b>
+                        </div>
+                    </div><!--/price-range-->
+
+                    <div class="shipping text-center"><!--shipping-->
+                        <img src="https://mosbatesabz.com/wp-content/uploads/2021/06/sun-sale.jpg" alt="" width="270"
+                             height="329"/>
+                    </div><!--/shipping-->
+
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items"><!--features_items-->
+                    <h2 class="title text-center">محصولات جدید</h2>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="https://daroo.com/media/product/28230/fab83504-4aa1-4a9e-9f92-8373cd38e20c/600/600"
+                                         alt=""/>
+                                    <h2 dir="rtl">229,000 تومان</h2>
+
+                                    <p>قرص ویتامین ب12 1000 میکروگرم هلث اید</p>
+                                    <a th:href="${'/product?id=4'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                </div>
+                                <div class="product-overlay">
+                                    <div class="overlay-content">
+                                        <h2 dir="rtl">229,000 تومان</h2>
+                                        <p>قرص ویتامین ب12 1000 میکروگرم هلث اید</p>
+                                        <a th:href="${'/product?id=4'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="https://darookhaneonline.com/image/Brands/Mokammel/Health%20Aid/Celadrin%20/health%20aid%20celadrin.jpg"
+                                         alt=""/>
+                                    <h2 dir="rtl">86,700 تومان</h2>
+                                    <p>کپسول سلدرین هلث اید</p>
+                                    <a th:href="${'/product?id=5'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                </div>
+                                <div class="product-overlay">
+                                    <div class="overlay-content">
+                                        <h2 dir="rtl">86,700 تومان</h2>
+                                        <p>کپسول سلدرین هلث اید</p>
+                                        <a th:href="${'/product?id=5'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="https://daroo.com/media/product/28154/9da88c3d-22aa-4b0d-9bd0-ab76c6ed0397/600/600"
+                                         alt=""/>
+                                    <h2 dir="rtl">101,900 تومان</h2>
+                                    <p>قرص یونی زینک ابیان دارو 60 عددی</p>
+                                    <a th:href="${'/product?id=6'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                </div>
+                                <div class="product-overlay">
+                                    <div class="overlay-content">
+                                        <h2 dir="rtl">101,900 تومان</h2>
+                                        <p>قرص یونی زینک ابیان دارو 60 عددی</p>
+                                        <a th:href="${'/product?id=6'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="https://daroo.com/media/product/28179/b2b49fb6-4ba6-47d9-a0a8-a1396cc87f19/600/600"
+                                         alt=""/>
+                                    <h2 dir="rtl">63,800 تومان</h2>
+                                    <p>شربت مولتی ویتامین سانستول فارمد 200 میلی لیتر</p>
+                                    <a th:href="${'/product?id=7'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                </div>
+                                <div class="product-overlay">
+                                    <div class="overlay-content">
+                                        <h2 dir="rtl">63,800 تومان</h2>
+                                        <p>شربت مولتی ویتامین سانستول فارمد 200 میلی لیتر</p>
+                                        <a th:href="${'/product?id=7'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                    </div>
+                                </div>
+                                <img src="images/home/new.png" class="new" alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="https://daroo.com/media/product/28422/d0d581ac-98a1-4e65-b296-937f4b02f091/600/600"
+                                         alt=""/>
+                                    <h2 dir="rtl">76,700 تومان</h2>
+                                    <p>قرص کلسی پاور هولیستیکا 90 عدد</p>
+                                    <a th:href="${'/product?id=8'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                </div>
+                                <div class="product-overlay">
+                                    <div class="overlay-content">
+                                        <h2 dir="rtl">76,700 تومان</h2>
+                                        <p>قرص کلسی پاور هولیستیکا 90 عدد</p>
+                                        <a th:href="${'/product?id=8'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                    </div>
+                                </div>
+                                <img src="images/home/sale.png" class="new" alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="https://www.darobox.ir/wp-content/uploads/2020/06/11-300x300.jpeg"
+                                         alt=""/>
+                                    <h2 dir="rtl">27,400 تومان</h2>
+                                    <p>کرم لایه بردار هیدرودرم حاوی 10% اسید گلیکولیک</p>
+                                    <a th:href="${'/product?id=9'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                </div>
+                                <div class="product-overlay">
+                                    <div class="overlay-content">
+                                        <h2 dir="rtl">27,400 تومان</h2>
+                                        <p>کرم لایه بردار هیدرودرم حاوی 10% اسید گلیکولیک</p>
+                                        <a th:href="${'/product?id=9'}" class="btn btn-default add-to-cart">مشاهده</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!--features_items-->
+
+                <div class="category-tab"><!--category-tab-->
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#mokamel" data-toggle="tab">مکمل غذایی</a></li>
+                            <li><a href="#tajhizat" data-toggle="tab">تجهیزات پزشکی</a></li>
+                            <li><a href="#arayeshi" data-toggle="tab">آرایشی</a></li>
+                            <li><a href="#kids" data-toggle="tab">مادر و کودک</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="mokamel">
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/28089/9ab0b2f9-cab1-4255-93f4-f6ebb56b3c4c/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">39,000 تومان</h2>
+                                            <p>شربت آرژیتال هلث اید 250 میلی لیتر</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/28920/5479dc13-388b-4357-94db-063e2bac1aa1/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">59,200 تومان</h2>
+                                            <p>کپسول فروفوت دئودنال عبیدی </p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/33687/d2c945f0-1e0c-450d-adcc-370364c16380/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">270,300 تومان</h2>
+                                            <p>پودر آمینو انرژی دوبیس با طعم توت</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/28037/a23afc7b-7460-4f54-b518-b9151b444a39/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">20,100 تومان</h2>
+                                            <p>قطره آدزیر ویتان 30 میلی لیتر</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="tajhizat">
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/30181/a395b8af-afdd-4e2e-9cb5-c1984a6d4f44/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">90,300 تومان</h2>
+                                            <p>زانو بند الاستیک تن یار سایز M</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/33540/c3b4951b-1413-4389-83a2-36cbfc1bfaa9/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">950,000 تومان</h2>
+                                            <p>دستگاه بخور سرد فول ول</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/33167/bafbc446-fe67-4d68-abbb-585f1715d476/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">199,400 تومان</h2>
+                                            <p>ماسک سه نقطه رادیوتراپی واران پرتو </p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/30164/caf534bb-3d2b-4c17-a681-9eb7b30ce02b/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">11,000 تومان</h2>
+                                            <p>پانسمان ضد آب مارتا تیپ سایز 30×10</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="arayeshi">
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/25527/012fe223-e101-477d-a622-43fdb26395cc/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">181,500 تومان</h2>
+                                            <p>کرم پودر نوت سری Mineral SPF 15 حجم 35 میل شماره 404</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/31130/4bce3551-d833-4f9e-acb0-a4ebeb3b457f/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">159,800 تومان</h2>
+                                            <p>پودر فیکساتور آرایش گلدن رز وزن 11 گرم</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/22883/eade3c8a-708f-4625-ad17-0ac707405584/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">296,500 تومان</h2>
+                                            <p>خط چشم ضد آب آرت دکو مدل Perfect Mat</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهدهد</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://daroo.com/media/product/29325/cd6c4552-120f-44cc-a6b6-0ba064d67aee/600/600"
+                                                 alt=""/>
+                                            <h2 dir="rtl">99,400 تومان</h2>
+                                            <p>بیوتی باکس 2 عددی آرت دکو رنگ مشکی</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهدهد</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="kids">
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://betadarou.com/wp-content/uploads/2018/10/DSC_00822-300x300.jpg"
+                                                 alt=""/>
+                                            <h2 dir="rtl">24,500 تومان</h2>
+                                            <p>شیر خشک ببجونیور میلوپا 400 گرم</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://betadarou.com/wp-content/uploads/2020/03/111364581-min-300x300.jpg?v=1589307621"
+                                                 alt=""/>
+                                            <h2 dir="rtl">20,800 تومان</h2>
+                                            <p>دستمال مرطوب کودک 60 عددی</p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://betadarou.com/wp-content/uploads/2018/07/473-300x300.jpg"
+                                                 alt=""/>
+                                            <h2 dir="rtl">85,000 تومان</h2>
+                                            <p>روغن حمام کودک کیووی ایگو 250 </p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="https://betadarou.com/wp-content/uploads/2019/09/DSC1137-min-300x300.jpg"
+                                                 alt=""/>
+                                            <h2 dir="rtl">55,000 تومان</h2>
+                                            <p>شامپو سر و بدن نوزاد استم سل 200 </p>
+                                            <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!--/category-tab-->
+
+                <div class="recommended_items"><!--recommended_items-->
+                    <h2 class="title text-center">محصولات پبشنهادی</h2>
+
+                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://daroo.com/media/product/21106/b23524ab-8130-4577-9cbd-81cb06eeb373/600/600"
+                                                     alt=""/>
+                                                <h2 dir="rtl">21,500 تومان</h2>
+                                                <p>شامپو موی سر داو مناسب موهای چرب 200 میل</p>
+                                                <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://daroo.com/media/product/28928/d726c454-dee1-4366-8d23-76aad1a09589/600/600"
+                                                     alt=""/>
+                                                <h2 dir="rtl">27,000 تومان</h2>
+                                                <p>پماد ترمیم کننده زخم آلفا وزن 30 گرم</p>
+                                                <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://daroo.com/media/product/24491/4706e5d1-7969-434e-ac07-d7415511ffdb/600/600"
+                                                     alt=""/>
+                                                <h2 dir="rtl">55,400 تومان</h2>
+                                                <p>تونر گیاهی هیدرودرم حجم 200 میل</p>
+                                                <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://daroo.com/media/product/24491/4706e5d1-7969-434e-ac07-d7415511ffdb/600/600"
+                                                     alt=""/>
+                                                <h2 dir="rtl">55,400 تومان</h2>
+                                                <p>تونر گیاهی هیدرودرم حجم 200 میل</p>
+                                                <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://daroo.com/media/product/28928/d726c454-dee1-4366-8d23-76aad1a09589/600/600"
+                                                     alt=""/>
+                                                <h2 dir="rtl">27,000 تومان</h2>
+                                                <p>پماد ترمیم کننده زخم آلفا وزن 30 گرم</p>
+                                                <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://daroo.com/media/product/21106/b23524ab-8130-4577-9cbd-81cb06eeb373/600/600"
+                                                     alt=""/>
+                                                <h2 dir="rtl">21,500 تومان</h2>
+                                                <p>شامپو موی سر داو مناسب موهای چرب 200 میل</p>
+                                                <a href="#" class="btn btn-default add-to-cart">مشاهده</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div><!--/recommended_items-->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer"><!--Footer-->
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="companyinfo">
+                        <h2><span>Darobox</span> داروباکس</h2>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="col-sm-3">
+                        <div class="video-gallery text-center">
+                            <a href="#">
+                                <div class="iframe-img">
+                                    <img src="https://eramdaro.ir/wp-content/uploads/2021/01/6A795FFD-DC7B-4591-9177-15E94AD04CE3.png"
+                                         alt=""/>
+                                </div>
+                                <div class="overlay-icon">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </div>
+                            </a>
+                            <p></p>
+                            <h2></h2>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="video-gallery text-center">
+                            <a href="#">
+                                <div class="iframe-img">
+                                    <img src="https://toonetshop.com/wp-content/uploads/2020/08/3.jpg" alt=""/>
+                                </div>
+                                <div class="overlay-icon">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </div>
+                            </a>
+                            <p></p>
+                            <h2></h2>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="video-gallery text-center">
+                            <a href="#">
+                                <div class="iframe-img">
+                                    <img src="https://daroo.shop/wp-content/uploads/2019/12/logo-1.jpg" alt=""/>
+                                </div>
+                                <div class="overlay-icon">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </div>
+                            </a>
+                            <p></p>
+                            <h2></h2>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="video-gallery text-center">
+                            <a href="#">
+                                <div class="iframe-img">
+                                    <img src="https://royalpharmacy.ir/wp-content/uploads/2021/03/0036473_420.jpeg"
+                                         alt=""/>
+                                </div>
+                                <div class="overlay-icon">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </div>
+                            </a>
+                            <p></p>
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="address">
+                        <img src="images/home/map.png" alt=""/>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-widget">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>خدمات</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">مشاوره آنلاین</a></li>
+                            <li><a href="">تماس با ما</a></li>
+                            <li><a href="">وضعیت سفارش</a></li>
+                            <li><a href="">تغییر مکان</a></li>
+                            <li><a href="">سوالات متداول</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>خرید سریع</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">آرایشی</a></li>
+                            <li><a href="">مکمل</a></li>
+                            <li><a href="">بهداشتی</a></li>
+                            <li><a href="">تجهپزات پزشکی</a></li>
+                            <li><a href="">مادر و کودک</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>قوانین و مقررات</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">شرایط استفاده</a></li>
+                            <li><a href="">حفظ حریم خصوصی</a></li>
+                            <li><a href="">بازپرداخت</a></li>
+                            <li><a href="">سیستم صدور صورت حساب</a></li>
+                            <li><a href="">سیستم بلیط</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>درباره ما</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">اطلاعات شرکت</a></li>
+                            <li><a href="">مشاغل</a></li>
+                            <li><a href="">آدرس شرکت</a></li>
+                            <li><a href="">برنامه هاس وابسته</a></li>
+                            <li><a href="">کپی رایت</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-sm-offset-1">
+                    <div class="single-widget">
+                        <h2></h2>
+                        <form action="#" class="searchform">
+                            <input type="text" placeholder="ایمیل خود را وارد نمایید" dir="rtl"/>
+                            <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i>
+                            </button>
+                            <p dir="rtl"> جدیدترین به روزرسانی ها را از<br/>سایت ما دریافت کنید و خود را به روز کنید ...
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <p class="pull-left">.کلیه حقوق این سایت متعلق به داروباکس می‌باشد</p>
+                <p class="pull-right"><span><a target="_blank" href="http://www.themeum.com"></a></span></p>
+            </div>
+        </div>
+    </div>
+
+</footer><!--/Footer-->
+<div id="login_div" th:onclick="close_login()"></div>
+<div id="top_login_box" class="p-3" style="overflow: auto">
+    <div class="container">
+        <!--				<div class="row">-->
+        <!--					<div class="col-sm-4 col-sm-offset-3">-->
+        <div class="login-form"><!--login form-->
+            <h2 style="direction: rtl;">ورود</h2>
+            <form th:action="${'/login'}">
+                <input type="text" placeholder="نام کاربری" style="text-align:right; " th:name="name_user" id="name_user"/>
+                <input type="password" placeholder="رمز عبور" style="text-align:right;" th:name="password_user" id="password_user"/>
+                <span>
+								<input type="checkbox" class="checkbox">
+								مرا به خاطر بسپار
+							</span>
+                <button type="submit" class="btn btn-default">ورود</button>
+            </form>
+        </div><!--/login form-->
+    </div>
+</div>
+
+
+
+<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+<script type="text/javascript" th:src="@{/js/price-range.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.scrollUp.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.prettyPhoto.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+
+<script>
+    function close_login() {
+
+        $("#top_login_box").fadeOut(200, function () {
+            $("#login_div").hide(200);
+            $("#name_user").html('');
+            $('#password_user').html('');
+            $("#top_login_box").hide();
+
+        });
+    }
+
+    function show_login() {
+        $('#login_div').show();
+        $('#top_login_box').show();
+    }
+</script>
+
+</body>
+</html>

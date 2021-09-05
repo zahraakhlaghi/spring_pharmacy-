@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>جزئیات محصول | داروباکس</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/prettyPhoto.css}"/>
+    <link rel="stylesheet" th:href="@{/css/price-range.css}"/>
+    <link rel="stylesheet" th:href="@{/css/animate.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/responsive.css}"/>
+</head><!--/head-->
+
+<body>
+<header id="header"><!--header-->
+    <div class="header_top"><!--header_top-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="contactinfo">
+                        <ul class="nav nav-pills">
+                            <li><a href=""><i class="fa fa-phone"></i> 031-31234567</a></li>
+                            <li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="social-icons pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header_top-->
+
+    <div class="header-middle"><!--header-middle-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 clearfix">
+                    <div class="logo pull-left">
+                        <a href="index.html"><img
+                                src="https://www.darobox.ir/wp-content/uploads/2021/07/logo-daroobox-up.png" alt=""
+                                width="139" height="39"/></a>
+                    </div>
+                    <div class="btn-group pull-right clearfix">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                ایران
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="">ترکیه</a></li>
+                                <li><a href="">عراق</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                تومان
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="">لیر</a></li>
+                                <li><a href="">ریال</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 clearfix">
+                    <div class="shop-menu clearfix pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href=""><i class="fa fa-user"></i> حساب کاربری</a></li>
+                            <li><a href=""><i class="fa fa-star"></i> علاقه مندی ها</a></li>
+                            <li><a th:href="${'/complete_sale'}"><i class="fa fa-crosshairs"></i>تکمیل خرید</a></li>
+                            <li><a th:href="${'/sale'}" ><i class="fa fa-shopping-cart"></i> سبد خرید</a></li>
+                            <li><a th:onclick="show_login()"><i class="fa fa-lock"></i> ورود</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header-middle-->
+
+    <div class="header-bottom"><!--header-bottom-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="mainmenu pull-left">
+                        <ul class="nav navbar-nav collapse navbar-collapse">
+                            <li><a th:href="${'/'}">خانه</a></li>
+                            <li class="dropdown"><a href="#">مشاوره<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    <li><a href="shop.html">محصولات</a></li>
+                                    <li><a href="product-details.html" class="active">جزئیات محصول</a></li>
+                                    <li><a href="cart.html">سبد خرید</a></li>
+                                    <li><a href="login.html">ورود</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#">مجله خبری<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    <li><a href="blog.html">لیست خبرها</a></li>
+                                    <li><a href="blog-single.html">تک خبر</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="contact-us.html">ارتباط با ما</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <form method="post" action="#" th:action="${'/search'}">
+                        <div class="search_box pull-right">
+                            <input id="search" th:name="search" type="text" placeholder="جستجو" dir="rtl"
+                                   style="padding-right:28px;">
+                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!--/header-bottom-->
+</header><!--/header-->
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>دسته بندی</h2>
+                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        مکمل غذایی
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="sportswear" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="">ویتامین ها و مواد معدنی </a></li>
+                                        <li><a href="">مکمل های کودک </a></li>
+                                        <li><a href="">مکمل ورزشی </a></li>
+                                        <li><a href="">تنظیم وزن</a></li>
+                                        <li><a href="">مکمل های درمانی </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#mens">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        تجهیزات پزشکی
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="mens" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="">ارتوپدی</a></li>
+                                        <li><a href="">لوازم کمک درمانی،کاربری</a></li>
+                                        <li><a href="">پانسمان و تزریقات</a></li>
+                                        <li><a href="">دستگاه های خانگی</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#womens">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        مراقبت پوست و مو
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="womens" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="">ترمیم کننده</a></li>
+                                        <li><a href="">التیام بخش پوست</a></li>
+                                        <li><a href="">ناخن</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">بهداشتی</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">آرایشی</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">تقویت سیستم ایمنی</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">مکمل های تخصصی</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">مادر و کودک</a></h4>
+                            </div>
+                        </div>
+                    </div><!--/category-products-->
+
+                    <div class="brands_products"><!--brands_products-->
+                        <h2>برندها</h2>
+                        <div class="brands-name">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href=""> <span class="pull-right">آدریان</span>(50)</a></li>
+                                <li><a href=""> <span class="pull-right">آکوافور</span>(56)</a></li>
+                                <li><a href=""> <span class="pull-right">آمیتامین(27)</span>(27)</a></li>
+                                <li><a href=""> <span class="pull-right">اروند فارمد</span>(32)</a></li>
+                                <li><a href=""> <span class="pull-right">ادونسیس</span>(5)</a></li>
+                                <li><a href=""> <span class="pull-right">آیسیس فارما</span>(9)</a></li>
+                            </ul>
+                        </div>
+                    </div><!--/brands_products-->
+
+                    <div class="price-range"><!--price-range-->
+                        <h2>بازه ی قیمت</h2>
+                        <div class="well">
+                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="500"
+                                   data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br/>
+                            <b>0 T</b> <b class="pull-right">500 T</b>
+                        </div>
+                    </div><!--/price-range-->
+
+                    <div class="shipping text-center"><!--shipping-->
+                        <img src="https://mosbatesabz.com/wp-content/uploads/2021/06/sun-sale.jpg" alt="" width="270"
+                             height="329"/>
+                    </div><!--/shipping-->
+
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="product-details"><!--product-details-->
+                    <div class="col-sm-7">
+                        <div class="product-information"><!--/product-information-->
+                            <img src="images/product-details/new.jpg" class="newarrival" alt=""/>
+                            <h2 style="direction: rtl; padding-right:30px" th:text="${name}"></h2>
+                            <span>
+									<span style="float:right; font-size:25px;" dir="rtl" th:text="${price}"></span>
+
+									<span style=" float:right; padding-right:10px;">
+                                        <a th:href="${'/sale?id='}+${id}">
+									<button
+                                            style="margin-top:10px;" type="button" class="btn btn-fefault cart">
+
+										<i class="fa fa-shopping-cart"></i>
+										افزودن به سبد خرید
+									</button>
+                                            </a>
+									<input hidden type="text" value="1"/>
+
+									<label hidden>: تعداد </label>
+									</span>
+
+								</span>
+                            <p dir="rtl" style="padding-right:30px;"><b>وضعیت: </b>موجود </p>
+
+                            <p style="float:right; padding-right:30px;"><b>برند: </b> داروباکس </p>
+                            <a href=""><img src="images/product-details/share.png" class="share img-responsive" alt=""/></a>
+                        </div><!--/product-information-->
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="view-product">
+                            <img th:src="${image}" alt=""/>
+                            <h3></h3>
+                        </div>
+                        <div id="similar-product" class="carousel slide" data-ride="carousel">
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <a href=""><img
+                                            src="https://darookhaneonline.com/image/Brands/Mokammel/Biotech/AFTER%20POST%20WORKOUT%20RECOVERY/%20%D8%A7%D9%81%D8%AA%D8%B1%20%D8%A8%D8%A7%DB%8C%D9%88%D8%AA%DA%A9.jpg"
+                                            alt="" width="90" height="9"></a>
+                                    <a href=""><img
+                                            src="https://darookhaneonline.com/image/Brands/Mokammel/Scitec%20Nutrition/Thermo%20X/%20%D8%AA%D8%B1%D9%85%D9%88%20%D8%A7%DB%8C%DA%A9%D8%B3%20%D8%B3%D8%A7%DB%8C%D8%AA%DA%A9.jpg"
+                                            alt="" width="90" height="9"></a>
+                                    <a href=""><img
+                                            src="https://shiderstore.com/sites/default/files/Mass-PLUS-Vanilla-1000.jpg?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                            alt="" width="90" height="9"></a>
+                                </div>
+                                <div class="item">
+                                    <a href=""><img
+                                            src="https://shiderstore.com/sites/default/files/1580205669-1000x1000.png?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                            alt="" width="90" height="9"></a>
+                                    <a href=""><img
+                                            src="https://shiderstore.com/sites/default/files/vitd3_1000.jpg?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                            alt="" width="90" height="9"></a>
+                                    <a href=""><img
+                                            src="https://shiderstore.com/sites/default/files/7799_0.jpeg?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                            alt="" width="90" height="9"></a>
+                                </div>
+                                <div class="item">
+                                    <a href=""><img
+                                            src="https://shiderstore.com/sites/default/files/2202697.jpg?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                            alt="" width="90" height="9"></a>
+                                    <a href=""><img
+                                            src="https://shiderstore.com/sites/default/files/wqvwzxwj.jpg?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                            alt="" width="90" height="9"></a>
+                                    <a href=""><img
+                                            src="https://shiderstore.com/sites/default/files/SP90.jpg?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                            alt="" width="90" height="9"></a>
+                                </div>
+
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left item-control" href="#similar-product" data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="right item-control" href="#similar-product" data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div><!--/product-details-->
+
+                <div class="category-tab shop-details-tab"><!--category-tab-->
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#reviews" data-toggle="tab">نظرات کاربران</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="reviews">
+                            <div class="col-sm-12">
+
+                                <p style="direction: rtl;"><b>نظر خود را درباره این محصول ثبت کنید</b></p>
+
+                                <form action="#">
+										<span>
+											<input type="email" placeholder="ایمیل" style="text-align:right;"/>
+											<input type="text" placeholder="نام" style="text-align:right;"/>
+
+										</span>
+                                    <textarea name=""></textarea>
+
+                                    <button type="button" class="btn btn-default pull-right">
+                                        ثبت
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!--/category-tab-->
+
+                <div class="recommended_items"><!--recommended_items-->
+                    <h2 class="title text-center">محصولات پیشنهادی</h2>
+
+                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://shiderstore.com/sites/default/files/Whey-Gold-Chocolate-1400.png?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                                     alt=""/>
+                                                <h2 dir="rtl">400,000 تومان</h2>
+                                                <p>پودر وی گلد شکلاتی 1400 گرم</p>
+                                                <button type="button" class="btn btn-default add-to-cart"><i
+                                                        class="fa fa-shopping-cart"></i>افزودن به سبد خرید
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://shiderstore.com/sites/default/files/vita%20globin.jpg?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                                     alt=""/>
+                                                <h2 dir="rtl">74,000 تومان</h2>
+                                                <p>کپسول ویتاگلوبین 30 عددی</p>
+                                                <button type="button" class="btn btn-default add-to-cart"><i
+                                                        class="fa fa-shopping-cart"></i>افزودن به سبد خرید
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://shiderstore.com/sites/default/files/2_5.png?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                                     alt=""/>
+                                                <h2 dir="rtl">36,000 تومان</h2>
+                                                <p>زینک پلاس یوروویتال 200 میلی گرم</p>
+                                                <button type="button" class="btn btn-default add-to-cart"><i
+                                                        class="fa fa-shopping-cart"></i>افزودن به سبد خرید
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://shiderstore.com/sites/default/files/Zinc.png?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                                     alt=""/>
+                                                <h2 dir="rtl">86,000 تومان</h2>
+                                                <p>مولتی سانستول پلاس زینک</p>
+                                                <button type="button" class="btn btn-default add-to-cart"><i
+                                                        class="fa fa-shopping-cart"></i>افزودن به سبد خرید
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://shiderstore.com/sites/default/files/Rdn3lUig2bQAyUwA.jpg?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                                     alt=""/>
+                                                <h2 dir="rtl">56,000 تومان</h2>
+                                                <p>ماسک سه بعدی بارمان</p>
+                                                <button type="button" class="btn btn-default add-to-cart"><i
+                                                        class="fa fa-shopping-cart"></i>افزودن به سبد خرید
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="https://shiderstore.com/sites/default/files/Komakol%2070%25%20Instant500ml.png?slideshow=true&slideshowAuto=true&slideshowSpeed=4000&speed=350&transition=elastic"
+                                                     alt=""/>
+                                                <h2 dir="rtl">40,000 تومان</h2>
+                                                <p>اسپری ضد عفونی کننده کماکل 70% الکل</p>
+                                                <button type="button" class="btn btn-default add-to-cart"><i
+                                                        class="fa fa-shopping-cart"></i>افزودن به سبد خرید
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div><!--/recommended_items-->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer"><!--Footer-->
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="companyinfo">
+                        <h2><span>Darobox</span> داروباکس</h2>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="col-sm-3">
+                        <div class="video-gallery text-center">
+                            <a href="#">
+                                <div class="iframe-img">
+                                    <img src="https://eramdaro.ir/wp-content/uploads/2021/01/6A795FFD-DC7B-4591-9177-15E94AD04CE3.png"
+                                         alt=""/>
+                                </div>
+                                <div class="overlay-icon">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="video-gallery text-center">
+                            <a href="#">
+                                <div class="iframe-img">
+                                    <img src="https://toonetshop.com/wp-content/uploads/2020/08/3.jpg" alt=""/>
+                                </div>
+                                <div class="overlay-icon">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="video-gallery text-center">
+                            <a href="#">
+                                <div class="iframe-img">
+                                    <img src="https://daroo.shop/wp-content/uploads/2019/12/logo-1.jpg" alt=""/>
+                                </div>
+                                <div class="overlay-icon">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="video-gallery text-center">
+                            <a href="#">
+                                <div class="iframe-img">
+                                    <img src="https://royalpharmacy.ir/wp-content/uploads/2021/03/0036473_420.jpeg"
+                                         alt=""/>
+                                </div>
+                                <div class="overlay-icon">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="address">
+                        <img src="images/home/map.png" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-widget">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>خدمات</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">مشاوره آنلاین</a></li>
+                            <li><a href="">تماس با ما</a></li>
+                            <li><a href="">وضعیت سفارش</a></li>
+                            <li><a href="">تغییر مکان</a></li>
+                            <li><a href="">سوالات متداول</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>خرید سریع</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">آرایشی</a></li>
+                            <li><a href="">مکمل</a></li>
+                            <li><a href="">بهداشتی</a></li>
+                            <li><a href="">تجهیزات پزشکی</a></li>
+                            <li><a href="">مادر و کودک</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>قوانین و مقررات</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">شرایط استفاده</a></li>
+                            <li><a href="">حفظ حریم خصوصی</a></li>
+                            <li><a href="">بازپرداخت</a></li>
+                            <li><a href="">سیستم صدور صورتحساب</a></li>
+                            <li><a href="">سیستم بلیط</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>درباره ما</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">اطلاعات شرکت</a></li>
+                            <li><a href="">مشاغل</a></li>
+                            <li><a href="">آدرس شرکت</a></li>
+                            <li><a href="">برنامه های وابسته</a></li>
+                            <li><a href="">کپی رایت</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-sm-offset-1">
+                    <div class="single-widget">
+                        <h2></h2>
+                        <form action="#" class="searchform">
+                            <input type="text" placeholder="ایمیل خود را وارد نمایید" dir="rtl"/>
+                            <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i>
+                            </button>
+                            <p dir="rtl">جدید ترین به روزرسانی ها را از <br/>سایت ما دریافت کنید و خود را به روز کنید
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <p class="pull-left">کلیه حقوق این سایت متعلق به داروباکس می باشد</p>
+
+            </div>
+        </div>
+    </div>
+</footer><!--/Footer-->
+
+
+<div id="login_div" th:onclick="close_login()"></div>
+<div id="top_login_box" class="p-3" style="overflow: auto">
+    <div class="container">
+        <!--				<div class="row">-->
+        <!--					<div class="col-sm-4 col-sm-offset-3">-->
+        <div class="login-form"><!--login form-->
+            <h2 style="direction: rtl;">ورود</h2>
+            <form th:action="${'/login'}">
+                <input type="text" placeholder="نام کاربری" style="text-align:right;" th:name="name_user" id="name_user"/>
+                <input type="password" placeholder="رمز عبور" style="text-align:right;" th:name="password_user" id="password_user"/>
+                <span>
+								<input type="checkbox" class="checkbox">
+								مرا به خاطر بسپار
+							</span>
+                <button type="submit" class="btn btn-default">ورود</button>
+            </form>
+        </div><!--/login form-->
+    </div>
+</div>
+
+
+
+<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+<script type="text/javascript" th:src="@{/js/price-range.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.scrollUp.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.prettyPhoto.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+
+<script>
+    function close_login() {
+
+        $("#top_login_box").fadeOut(200, function () {
+            $("#login_div").hide(200);
+            $("#name_user").html('');
+            $('#password_user').html('');
+            $("#top_login_box").hide();
+
+        });
+    }
+
+    function show_login() {
+        $('#login_div').show();
+        $('#top_login_box').show();
+    }
+
+    function Func() {
+        alert('خرید با موفقیت انجام شد');
+    }
+</script>
+
+    function Func() {
+        alert('خرید با موفقیت انجام شد');
+    }
+
+</body>
+</html>

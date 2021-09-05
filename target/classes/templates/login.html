@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ورود | داروباکس</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/prettyPhoto.css}"/>
+	<link rel="stylesheet" th:href="@{/css/price-range.css}"/>
+	<link rel="stylesheet" th:href="@{/css/animate.css}"/>
+	<link rel="stylesheet" th:href="@{/css/main.css}"/>
+	<link rel="stylesheet" th:href="@{/css/responsive.css}"/>
+</head><!--/head-->
+
+<body>
+	<header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="contactinfo">
+							<ul class="nav nav-pills">
+								<li><a href=""><i class="fa fa-phone"></i> 031-31234567</a></li>
+								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href=""><i class="fa fa-facebook"></i></a></li>
+								<li><a href=""><i class="fa fa-twitter"></i></a></li>
+								<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+								<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+								<li><a href=""><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header_top-->
+		
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 clearfix">
+						<div class="logo pull-left">
+							<a href="index.html"><img src="https://www.darobox.ir/wp-content/uploads/2021/07/logo-daroobox-up.png" alt="" width="139" height="39" /></a>
+						</div>
+						<div class="btn-group pull-right clearfix">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+									ایران
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="">ترکیه</a></li>
+									<li><a href="">عراق</a></li>
+								</ul>
+							</div>
+							
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+									ریال
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="">لیر</a></li>
+									<li><a href="">دینار</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-8 clearfix">
+						<div class="shop-menu clearfix pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href=""><i class="fa fa-user"></i> حساب کاربری</a></li>
+								<li><a href=""><i class="fa fa-star"></i> علاقه مندی ها</a></li>
+								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> تکمیل خرید</a></li>
+								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> سبد خرید</a></li>
+								<li><a href="login.html"><i class="fa fa-lock"></i> ورود</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->
+	
+		<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+				</div>
+					
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="index.html">خانه</a></li>
+								<li class="dropdown"><a href="#">خرید<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="shop.html">محصولات</a></li>
+										<li><a href="product-details.html">جزئیات محصول</a></li> 
+										<li><a href="checkout.html">تکمیل خرید</a></li> 
+										<li><a href="cart.html">سبد خرید</a></li> 
+										<li><a class="active">ورود</a></li>
+                                    </ul>
+                                </li> 
+								<li class="dropdown"><a href="#">مجله خبری <i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="blog.html">لیست خبرها</a></li>
+										<li><a href="blog-single.html">تک خبر</a></li>
+                                    </ul>
+                                </li> 
+								
+								<li><a href="contact-us.html">ارتباط با ما</a></li>
+							</ul>
+						</div>
+					
+				</div>
+				<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="جستجو" dir="rtl" style="padding-right:28px;"/>
+						</div>
+					</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->
+	
+	<section id="form"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+						<h2 style = "direction: rtl;" >ورود</h2>
+						<form action="#">
+							<input type="text" placeholder="نام کاربری" style="text-align:right;"  />
+							<input type="password" placeholder="رمز عبور" style="text-align:right;" />
+							<span>
+								<input type="checkbox" class="checkbox" > 
+								مرا به خاطر بسپار
+							</span>
+							<button type="submit" class="btn btn-default">ورود</button>
+						</form>
+					</div><!--/login form-->
+				</div>
+				<div class="col-sm-1">
+					<h2 class="or">یا</h2>
+				</div>
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2 style = "direction: rtl;" > ایجاد حساب کاربری</h2>
+						<form action="#">
+							<input dir="rtl" type="text" placeholder="نام کاربری"  />
+							<input type="email" placeholder="ایمیل" style="text-align:right;" />
+							<input type="password" placeholder="رمز عبور" style="text-align:right;" />
+							<button type="submit" class="btn btn-default">ثبت نام</button>
+						</form>
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->
+	
+	
+	<footer id="footer"><!--Footer-->
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="companyinfo">
+							<h2><span>Darobox</span> داروباکس</h2>
+							<p></p>
+						</div>
+					</div>
+					<div class="col-sm-7">
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="https://eramdaro.ir/wp-content/uploads/2021/01/6A795FFD-DC7B-4591-9177-15E94AD04CE3.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p></p>
+								<h2></h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="https://toonetshop.com/wp-content/uploads/2020/08/3.jpg" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p></p>
+								<h2></h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="https://daroo.shop/wp-content/uploads/2019/12/logo-1.jpg" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p></p>
+								<h2></h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="https://royalpharmacy.ir/wp-content/uploads/2021/03/0036473_420.jpeg" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p></p>
+								<h2></h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="address">
+							<img src="images/home/map.png" alt="" />
+							<p></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>خدمات</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="">مشاوره آنلاین</a></li>
+								<li><a href="">تماس با ما</a></li>
+								<li><a href="">وضعیت سفارش</a></li>
+								<li><a href="">تغییر مکان</a></li>
+								<li><a href="">سوالات متداول</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>خرید سریع</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="">آرایشی</a></li>
+								<li><a href="">مکمل</a></li>
+								<li><a href="">بهداشتی</a></li>
+								<li><a href="">تجهپزات پزشکی</a></li>
+								<li><a href="">مادر و کودک</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>قوانین و مقررات</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="">شرایط استفاده</a></li>
+								<li><a href="">حفظ حریم خصوصی</a></li>
+								<li><a href="">بازپرداخت</a></li>
+								<li><a href="">سیستم صدور صورت حساب</a></li>
+								<li><a href="">سیستم بلیط</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>درباره ما</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="">اطلاعات شرکت</a></li>
+								<li><a href="">مشاغل</a></li>
+								<li><a href="">آدرس شرکت</a></li>
+								<li><a href="">برنامه هاس وابسته</a></li>
+								<li><a href="">کپی رایت</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3 col-sm-offset-1">
+						<div class="single-widget">
+							<h2></h2>
+							<form action="#" class="searchform">
+								<input type="text" placeholder="ایمیل خود را وارد نمایید" dir="rtl" />
+								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+								<p dir="rtl"> جدیدترین به روزرسانی ها را از<br />سایت ما دریافت کنید و خود را به روز کنید ...</p>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="pull-left">.کلیه حقوق این سایت متعلق به داروباکس می‌باشد</p>
+					<p class="pull-right"><span><a target="_blank" href="http://www.themeum.com"></a></span></p>
+				</div>
+			</div>
+		</div>
+		
+	</footer><!--/Footer-->
+	
+
+  
+    <script th:src="@{/js/jquery.js"></script>
+	<script th:src="@{/js/price-range.js"></script>
+    <script th:src="@{/js/jquery.scrollUp.min.js"></script>
+	<script th:src="@{/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/jquery.prettyPhoto.js"></script>
+    <script th:src="@{/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+com/mkyong/controller/ProductController.class
+com/mkyong/service/UserService.class
+com/mkyong/service/ProductService.class
+com/mkyong/StartWebApplication.class
+com/mkyong/model/User.class
+com/mkyong/repository/ProductRepository.class
+com/mkyong/controller/UserController.class
+com/mkyong/model/Product.class
+com/mkyong/repository/UserRepository.class
